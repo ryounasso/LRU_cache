@@ -4,11 +4,16 @@
 package LRU_cache;
 
 import org.junit.Test;
+
+import jdk.jfr.Timestamp;
+
 import static org.junit.Assert.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class AppTest {
-    @Test public void testAppHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull("app should have a greeting", classUnderTest.getGreeting());
+    @Test
+    public void LRUキャッシュの実行() throws Exception {
+        assertEquals("deleted", LRUcache.LRUcache());
     }
 }
