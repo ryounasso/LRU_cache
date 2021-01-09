@@ -29,4 +29,12 @@ public class AppTest {
         lrucache.put("テスト", 1);
         assertEquals(true, lrucache.print("テスト"));
     }
+
+    // エントリのvalueを取得できているかテスト
+    @Test
+    public void _エントリのvalueを取得() throws Exception {
+        lrucache.capacity = 3;
+        lrucache.put("テスト", 1);
+        assertEquals(1, lrucache.get("テスト"));
+    }
 }

@@ -44,4 +44,10 @@ class LRUcache {
         return hashMap.containsKey(key);
     }
 
+    // キーに対応する値を取得
+    int get(String key) {
+        LinkedListNode node = hashMap.get(key);
+        return node.value;
+    }
+
 }
