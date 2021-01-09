@@ -10,7 +10,21 @@ class LRUcache {
 
     int capacity;
 
+    class LinkedListNode {
+
+        LinkedListNode next;
+        LinkedListNode prev;
+        String key;
+        int value;
+
+        public LinkedListNode(String key, int value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+
     public LRUcache(int capacity) {
         this.capacity = capacity;
     }
+
 }
