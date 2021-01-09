@@ -11,9 +11,15 @@ import static org.junit.Assert.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+// テストコード
 public class AppTest {
+    LRUCache lrucache = new LRUCache(2);
+
     @Test
     public void LRUキャッシュの実行() throws Exception {
-        assertEquals("deleted", LRUcache.LRUcache());
+        lrucache.capacity = 2;
+        lrucache.put("テスト", 1);
+        lrucache.get("テスト");
+        assertEquals(1, lrucache.get("テスト"));
     }
 }
