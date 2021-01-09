@@ -49,5 +49,4 @@ class LRUcache {
         LinkedListNode node = hashMap.get(key);
         return node.value;
     }
-
 }
