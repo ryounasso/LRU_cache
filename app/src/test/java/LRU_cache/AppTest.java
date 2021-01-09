@@ -17,8 +17,16 @@ public class AppTest {
 
     // エントリの最大数を格納できているかテスト
     @Test
-    public void LRUキャッシュの実行() throws Exception {
+    public void _LRUキャッシュの実行() throws Exception {
         lrucache.capacity = 2;
         assertEquals(2, lrucache.capacity);
+    }
+
+    // エントリのセットをできているかテスト
+    @Test
+    public void _エントリのセットを確認() throws Exception {
+        lrucache.capacity = 3;
+        lrucache.put("テスト", 1);
+        assertEquals(true, lrucache.print("テスト"));
     }
 }
