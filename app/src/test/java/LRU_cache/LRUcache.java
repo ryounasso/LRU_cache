@@ -8,6 +8,7 @@ class LRUcache {
 
     HashMap<String, LinkedListNode> hashMap = new HashMap<String, LinkedListNode>();
 
+    // エントリの最大数を格納する
     int capacity;
 
     class LinkedListNode {
@@ -23,6 +24,7 @@ class LRUcache {
         }
     }
 
+    // エントリの最大数を定義
     public LRUcache(int capacity) {
         this.capacity = capacity;
     }

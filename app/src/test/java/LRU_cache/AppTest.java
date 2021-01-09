@@ -15,8 +15,10 @@ import java.util.Map;
 public class AppTest {
     LRUcache lrucache = new LRUcache(2);
 
+    // エントリの最大数を格納できているかテスト
     @Test
     public void LRUキャッシュの実行() throws Exception {
         lrucache.capacity = 2;
+        assertEquals(2, lrucache.capacity);
     }
 }
