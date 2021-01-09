@@ -39,6 +39,7 @@ class LRUcache {
         hashMap.put(key, node);
     }
 
+    // エントリをセットできているかの確認
     boolean print(String key) {
         return hashMap.containsKey(key);
     }
