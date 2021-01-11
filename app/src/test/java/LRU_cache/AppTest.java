@@ -17,7 +17,7 @@ public class AppTest {
 
     // エントリの最大数を格納できているかテスト
     @Test
-    public void _LRUキャッシュの実行() throws Exception {
+    public void _エントリの最大数の確認() throws Exception {
         assertEquals(2, lrucache.capacity);
     }
 
@@ -31,8 +31,16 @@ public class AppTest {
     // エントリのvalueを取得できているかテスト
     @Test
     public void _エントリのvalueを取得() throws Exception {
-        lrucache.capacity = 3;
         lrucache.put("テスト", 1);
         assertEquals(1, lrucache.get("テスト"));
+    }
+
+    // エントリの削除をテスト
+    @Test
+    public void _エントリを削除() throws Exception {
+        lrucache.put("テスト", 1);
+        assertEquals(1, lrucache.get("テスト"));
+        lrucache.remove("テスト");
+        assertEquals(-1, lrucache.get("テスト"));
     }
 }

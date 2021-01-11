@@ -46,7 +46,17 @@ class LRUcache {
 
     // キーに対応する値を取得
     int get(String key) {
+        if (hashMap.containsKey(key) == false) {
+            return -1;
+        }
         LinkedListNode node = hashMap.get(key);
+        return node.value;
+    }
+
+    // エントリの削除
+    int remove(String key) {
+        LinkedListNode node = hashMap.get(key);
+        hashMap.remove(key);
         return node.value;
     }
 }
