@@ -73,6 +73,7 @@ class LRUcache {
         removeNode(node);
     }
 
+    // エントリの順番を更新
     void ToHead(LinkedListNode node) {
         if (head == null) {
             head = node;
@@ -84,6 +85,7 @@ class LRUcache {
         }
     }
 
+    // エントリをリストから削除
     void removeNode(LinkedListNode node) {
         if (node == head && node == tail) {
             head = null;
@@ -102,6 +104,7 @@ class LRUcache {
         }
     }
 
+    // エントリが最大数の達したかどうかを確認
     boolean isFull() {
         return hashMap.size() == this.capacity;
     }
