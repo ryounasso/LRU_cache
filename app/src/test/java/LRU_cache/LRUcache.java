@@ -62,6 +62,7 @@ class LRUcache {
             return -1;
         }
         LinkedListNode node = hashMap.get(key);
+        removeNode(node);
         ToHead(node);
         return node.value;
     }

@@ -51,4 +51,15 @@ public class AppTest {
         lrucache.put("イチゴ", 1);
         assertEquals(-1, lrucache.get("テスト"));
     }
+
+    // エントリを参照した際のテスト
+    @Test
+    public void _順番の更新() throws Exception {
+        lrucache.put("テスト", 1);
+        lrucache.put("アイス", 2);
+        lrucache.get("テスト");
+        lrucache.put("イチゴ", 1);
+        assertEquals(1, lrucache.get("テスト"));
+        assertEquals(-1, lrucache.get("アイス"));
+    }
 }
