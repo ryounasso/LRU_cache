@@ -39,7 +39,6 @@ public class AppTest {
     @Test
     public void _エントリを削除() throws Exception {
         lrucache.put("テスト", 1);
-        assertEquals(1, lrucache.get("テスト"));
         lrucache.remove("テスト");
         assertEquals(-1, lrucache.get("テスト"));
     }
