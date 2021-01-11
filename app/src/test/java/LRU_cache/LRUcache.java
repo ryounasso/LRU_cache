@@ -35,8 +35,20 @@ class LRUcache {
     // エントリのセット
     void put(String key, int value) {
         LinkedListNode node;
-        node = new LinkedListNode(key, value);
-        hashMap.put(key, node);
+        if (hashMap.containsKey(key) == false) {
+            if (isFull() == true) {
+                hashMap.remove(tail.key);
+                removeNode(tail);
+            }
+            node = new LinkedListNode(key, value);
+            hashMap.put(key, node);
+        } else {
+            node = hashMap.get(key);
+            node.value = value;
+            hashMap.put(key, node);
+            removeNode(node);
+        }
+        ToHead(node);
     }
 
     // エントリをセットできているかの確認
@@ -50,13 +62,47 @@ class LRUcache {
             return -1;
         }
         LinkedListNode node = hashMap.get(key);
+        ToHead(node);
         return node.value;
     }
 
     // エントリの削除
-    int remove(String key) {
+    void remove(String key) {
         LinkedListNode node = hashMap.get(key);
         hashMap.remove(key);
-        return node.value;
+        removeNode(node);
+    }
+
+    void ToHead(LinkedListNode node) {
+        if (head == null) {
+            head = node;
+            tail = node;
+        } else {
+            node.next = head;
+            head.prev = node;
+            head = node;
+        }
+    }
+
+    void removeNode(LinkedListNode node) {
+        if (node == head && node == tail) {
+            head = null;
+            tail = null;
+        } else if (node == head) {
+            head = node.next;
+            head.prev = null;
+        } else if (node == tail) {
+            tail = node.prev;
+            tail.next = null;
+        } else {
+            LinkedListNode prev = node.prev;
+            LinkedListNode next = node.next;
+            prev.next = next;
+            next.prev = prev;
+        }
+    }
+
+    boolean isFull() {
+        return hashMap.size() == this.capacity;
     }
 }

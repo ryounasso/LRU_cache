@@ -42,4 +42,13 @@ public class AppTest {
         lrucache.remove("テスト");
         assertEquals(-1, lrucache.get("テスト"));
     }
+
+    // エントリが最大数に達した際のテスト
+    @Test
+    public void _最大数の達した時() throws Exception {
+        lrucache.put("テスト", 1);
+        lrucache.put("アイス", 2);
+        lrucache.put("イチゴ", 1);
+        assertEquals(-1, lrucache.get("テスト"));
+    }
 }
